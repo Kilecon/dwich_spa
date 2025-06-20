@@ -5,21 +5,19 @@ interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   variant?: 'primary' | 'secondary';
-  disabled?: boolean;
+  size?: string;
 }
 
-const Button = ({
-  children,
-  onClick,
+export const Button = ({ 
+  children, 
+  onClick, 
   variant = 'primary',
-  disabled = false
+  size
 }: ButtonProps) => {
   return (
     <button
-      className={`${styles.button} ${styles[variant]}`}
+      className={`${styles.button} ${styles[variant]} ${size ? styles[size] : ''}`}
       onClick={onClick}
-      disabled={disabled}
-      aria-disabled={disabled}
     >
       {children}
     </button>
