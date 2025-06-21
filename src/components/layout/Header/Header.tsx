@@ -1,16 +1,33 @@
 import styles from './Header.module.scss';
 import { Button } from '@/components/ui/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import type { MouseEvent } from 'react';
 
 export const Header = () => {
+  const navigate = useNavigate();
+
+  const MenuClick = (e: MouseEvent<HTMLImageElement>) => {
+    e.preventDefault();
+    console.log('menu click');
+    // sidebar
+  };
+
+  const ProfileClick = (e: MouseEvent<HTMLImageElement>) => {
+    e.preventDefault();
+    console.log('redirection profile');
+    navigate('/profile');
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.leftGroup}>
         <img 
-            src="/assets/icons/menu_icon_couleur.png" 
-            alt="Menu"
-            className={styles.navMenu}
-          />
+          src="/assets/icons/menu_icon_couleur.png" 
+          alt="Menu"
+          className={styles.navMenu}
+          onClick={MenuClick}
+          style={{ cursor: 'pointer' }}
+        />
         <Link to="/TESTEST" className={styles.navTextLink}>
           NOTRE CARTE
         </Link>
@@ -32,6 +49,8 @@ export const Header = () => {
             src="/assets/icons/profil_icon_couleur.png" 
             alt="Profile"
             className={styles.navProfil}
+            onClick={ProfileClick}
+            style={{ cursor: 'pointer' }}
           />
         </div>
       </div>

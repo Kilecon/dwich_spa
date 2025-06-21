@@ -12,8 +12,8 @@
 }
 
 .navLogo {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   position: absolute;
   left: 50%;
@@ -33,11 +33,11 @@
 
 .leftGroup {
   position: absolute;
-  right: calc(50% + 150px);
+  right: calc(50% + 220px);
   top: 50%;
   transform: translateY(-50%);
   display: flex;
-  gap: 50px;
+  gap: 75px;
   align-items: center; 
 }
 
@@ -58,4 +58,88 @@
 .navMenu {
     width: 40px;
     height: 40px;
+}
+
+.navMenu,
+.navProfil {
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+@media (max-width: 1200px) {
+  .rightGroup {
+    left: calc(50% + 120px);
+  }
+  .leftGroup {
+    right: calc(50% + 160px);
+    gap: 50px;
+  }
+}
+
+@media (max-width: 1020px) {
+  .rightGroup {
+    left: calc(50% + 90px);
+  }
+  .leftGroup {
+    right: calc(50% + 130px);
+    gap: 50px;
+  }
+}
+
+@media (max-width: 900px) {
+  .rightGroup {
+    left: calc(50% + 70px);
+  }
+  .leftGroup {
+    right: calc(50% + 110px);
+    gap: 50px;
+  }
+}
+
+@media (max-width: 850px) {
+  .header {
+    height: 60px;
+  }
+
+  .navLogo {
+    width: 60px;
+    height: 60px;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
+
+  .leftGroup {
+    right: auto;
+    left: 20px;
+    gap: 0;
+    transform: translateY(-50%);
+    
+    .navTextLink {
+      display: none;
+    }
+  }
+
+  .rightGroup {
+    left: auto;
+    right: 20px;
+    gap: 0;
+    transform: translateY(-50%);
+    
+    Button {
+      display: none;
+    }
+  }
+
+  .navMenu,
+  .navProfil {
+    width: 32px;
+    height: 32px;
+  }
 }
