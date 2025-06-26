@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Header from './components/layout/Header/Header';
+import Footer from './components/layout/Footer/Footer';
 
 function HomePage() {
   return (
@@ -17,7 +18,7 @@ function HomePage() {
         </main>
 
         <footer>
-          <p>Test footer</p>
+          {<Footer/>}
         </footer>
       </div>
     </BrowserRouter>
