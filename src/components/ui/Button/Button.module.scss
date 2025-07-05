@@ -16,7 +16,18 @@
     color: #013a2f;
     border: 2px solid #013a2f;
   }
+
+  &.tertiary {
+    background-color: white;
+    color: #013a2f;
+    border: none;
+  }
   
+  &.fat {
+    padding: 24px 72px;
+    font-size: 1.8rem;
+  }
+
   &.small {
     padding: 8px 16px;
     font-size: 0.8rem;
