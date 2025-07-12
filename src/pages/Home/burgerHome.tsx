@@ -1,4 +1,4 @@
-import styles from './Home.module.scss';
+import styles from './burgerHome.module.scss';
 import { Button } from '@/components/ui/Button';
 
 const Home = () => {
