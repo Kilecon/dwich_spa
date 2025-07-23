@@ -1,7 +1,7 @@
 import styles from './burgerHome.module.scss';
 import { Button } from '@/components/ui/Button';
 
-const Home = () => {
+const Home1 = () => {
   return (
     <div className={styles.burger_container}>
       <div className={styles.burger_font}>
@@ -24,4 +24,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Home1;
