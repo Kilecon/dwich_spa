@@ -1,15 +1,15 @@
 .selectionContainer {
   width: 100%;
   background-color: #EFB4C2;
-  padding: 80px 0 60px;
+  padding: 60px 0 40px; 
   position: relative;
   z-index: 1;
-  min-height: calc(100vh - 120px);
+  min-height: auto;
 }
 
 .headerSection {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   position: relative;
   z-index: 2;
 
@@ -18,10 +18,10 @@
     font-weight: bold;
     text-transform: uppercase;
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     position: relative;
-    padding: 20px 0;
-    bottom: 35px;
+    padding: 15px 0;
+    bottom: 20px;
   }
 }
 
@@ -29,21 +29,22 @@
   max-width: 1300px;
   margin: 0 auto;
   position: relative;
+  padding: 0 15px;
 }
 
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 0 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  padding: 0;
 }
 
 .selectionItem {
   position: relative;
   width: 100%;
-  max-width: 298px;
+  max-width: 280px;
   margin: 0 auto;
-  aspect-ratio: 298/378;
+  aspect-ratio: 280/350;
 }
 
 .selectionImage {
@@ -51,42 +52,122 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .selectionItem button {
   position: absolute;
-  bottom: 60px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 70%;
+  width: 75%;
   margin: 0 auto;
   z-index: 3;
+  font-size: 0.9rem;
+  padding: 10px 15px; 
+}
+
+.mobileCarousel {
+  overflow: hidden;
+  position: relative;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  touch-action: pan-y;
+  cursor: grab;
+  
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.carouselItem {
+  flex: 0 0 100%;
+  min-width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.dotsContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px; 
+  gap: 8px; 
+}
+
+.dot {
+  width: 8px; 
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2); 
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.activeDot {
+  background-color: #013a2f;
+  transform: scale(1.1); 
+}
+
+@media (max-width: 1024px) {
+  .selectionContainer {
+    padding: 50px 0 30px;
+  }
+  
+  .headerSection h1 {
+    font-size: 1.4rem;
+  }
 }
 
 @media (max-width: 768px) {
   .selectionContainer {
-    padding: 60px 0 40px;
+    padding: 40px 0 20px;
   }
   
-  .gridContainer {
-    grid-template-columns: repeat(1, 1fr);
+  .headerSection {
+    margin-bottom: 20px;
+    
+    h1 {
+      font-size: 1.3rem;
+      padding: 10px 0;
+    }
+  }
+  
+  .selectionItem {
+    aspect-ratio: 3/3.5;
+  }
+  
+  .selectionItem button {
+    bottom: 30px;
+    width: 80%;
   }
 }
 
 @media (max-width: 480px) {
   .selectionContainer {
-    padding: 40px 0 30px;
-    min-height: auto;
-  }
-  
-  .gridContainer {
-    grid-template-columns: 1fr;
+    padding: 30px 0 15px;
   }
   
   .headerSection h1 {
-    font-size: 1.5rem;
-    padding: 10px 0;
+    font-size: 1.2rem;
+    bottom: 15px;
+  }
+  
+  .carouselItem {
+    padding: 0 5px;
+  }
+  
+  .dotsContainer {
+    margin-top: 12px;
   }
 }
