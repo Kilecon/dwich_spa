@@ -4,7 +4,7 @@ import styles from './Button.module.scss';
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
-  variant?: 'primary' | 'secondary' | 'tertiary';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
   size?: string;
 }
 

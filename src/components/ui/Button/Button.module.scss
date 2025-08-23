@@ -22,6 +22,14 @@
     color: #013a2f;
     border: none;
   }
+
+  &.quaternary {
+    background-color: #013a2f;
+    color: #ffffff;
+    border: none;
+  }
+
+
   
   &.fat {
     padding: 24px 72px;
@@ -41,5 +49,11 @@
   &.large {
     padding: 16px 32px;
     font-size: 1.2rem;
+  }
+
+  &.squared {
+    padding: 16px 32px;
+    font-size: 1.8rem;
+    border-radius: 10px;
   }
 }

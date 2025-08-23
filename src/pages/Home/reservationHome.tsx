@@ -6,17 +6,14 @@ const Home3 = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <h1 className={styles.heading}>Venez réserver votre table dans notre enseigne</h1>
-        <div className={styles.address}>
-          <p><strong>Adresse :</strong></p>
-          <p>4 Avenue de Verdun, 33127 Martignas-sur-Jalle</p>
-        </div>
+
         <div className={styles.buttonWrapper}>
           <Button 
-            variant="primary" 
-            size="large" 
+            variant="quaternary" 
+            size="squared" 
             onClick={() => console.log('Reserver')}
           >
-            Réserver
+            RÉSERVER
           </Button>
         </div>
       </div>
@@ -27,6 +24,13 @@ const Home3 = () => {
           alt="Restaurant" 
           className={styles.mainImage} 
         />
+      </div>
+
+      <div className={styles.overlayContainer}>
+        <div className={styles.overlayContent}>
+          <h3 className={styles.overlayTitle}>Adresse :</h3>
+          <p className={styles.overlayText}>4 Avenue de Verdun, 33127 Martignas-sur-Jalle</p>
+        </div>
       </div>
     </div>
   );
