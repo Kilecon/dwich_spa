@@ -28,7 +28,7 @@ const Home3 = () => {
 
       <div className={styles.overlayContainer}>
         <div className={styles.overlayContent}>
-          <h3 className={styles.overlayTitle}>Adresse :</h3>
+          <h3 className={styles.overlayTitle}> <img className={styles.iconAdresse} src="/assets/icons/reservation_icon_adresse.png" />Adresse :</h3>
           <p className={styles.overlayText}>4 Avenue de Verdun, 33127 Martignas-sur-Jalle</p>
         </div>
       </div>
