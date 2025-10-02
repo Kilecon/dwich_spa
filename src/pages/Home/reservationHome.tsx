@@ -24,12 +24,15 @@ const Home3 = () => {
           alt="Restaurant" 
           className={styles.mainImage} 
         />
-      </div>
-
-      <div className={styles.overlayContainer}>
-        <div className={styles.overlayContent}>
-          <h3 className={styles.overlayTitle}> <img className={styles.iconAdresse} src="/assets/icons/reservation_icon_adresse.png" />Adresse :</h3>
-          <p className={styles.overlayText}>4 Avenue de Verdun, 33127 Martignas-sur-Jalle</p>
+        
+        <div className={styles.overlayContainer}>
+          <div className={styles.overlayContent}>
+            <h3 className={styles.overlayTitle}>
+              <img className={styles.iconAdresse} src="/assets/icons/reservation_icon_adresse.png" alt="Adresse icon" />
+              Adresse :
+            </h3>
+            <p className={styles.overlayText}>4 Avenue de Verdun, 33127 Martignas-sur-Jalle</p>
+          </div>
         </div>
       </div>
     </div>
