@@ -60,7 +60,11 @@
 
 @media (max-width: 768px) {
   .footerContent {
+    text-align: center;
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+  .navLogo {
+    display : None;
   }
 }

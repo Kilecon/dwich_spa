@@ -32,6 +32,7 @@
   padding: 0 15px;
 }
 
+// Desktop grid layout
 .gridContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -68,6 +69,7 @@
   padding: 10px 15px; 
 }
 
+// Mobile carousel layout
 .mobileCarousel {
   overflow: hidden;
   position: relative;
@@ -76,17 +78,20 @@
   left: 0;
   right: 0;
   touch-action: pan-y;
-  cursor: grab;
-  
-  &:active {
-    cursor: grabbing;
-  }
 }
 
 .carouselTrack {
   display: flex;
   transition: transform 0.3s ease;
   width: 100%;
+  user-select: none; // Prevent text selection during drag
+  
+  // Default cursor - will be overridden by inline style
+  cursor: grab;
+  
+  &:active {
+    cursor: grabbing;
+  }
 }
 
 .carouselItem {
@@ -96,6 +101,59 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+}
+
+// Carousel navigation arrows
+.carouselArrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 4;
+  pointer-events: none; // Allow clicks through to carousel
+  
+  @media (max-width: 768px) {
+    display: none; // Hide arrows on mobile
+  }
+}
+
+.arrow {
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  pointer-events: all; // Re-enable clicks for arrows
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  
+  &:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.95);
+    transform: scale(1.1);
+  }
+  
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.arrowLeft {
+  left: 10px;
+}
+
+.arrowRight {
+  right: 10px;
 }
 
 .dotsContainer {
@@ -112,6 +170,10 @@
   background-color: rgba(0, 0, 0, 0.2); 
   cursor: pointer;
   transition: all 0.3s;
+  
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .activeDot {
@@ -119,17 +181,32 @@
   transform: scale(1.1); 
 }
 
-@media (max-width: 1024px) {
-  .selectionContainer {
-    padding: 50px 0 30px;
+// Responsive behavior
+@media (min-width: 769px) {
+  .mobileCarousel,
+  .dotsContainer {
+    display: none;
   }
   
-  .headerSection h1 {
-    font-size: 1.4rem;
+  .gridContainer {
+    display: grid;
   }
 }
 
 @media (max-width: 768px) {
+  .gridContainer {
+    display: none;
+  }
+  
+  .mobileCarousel,
+  .dotsContainer {
+    display: flex;
+  }
+  
+  .carouselArrows {
+    display: none;
+  }
+  
   .selectionContainer {
     padding: 40px 0 20px;
   }
@@ -153,6 +230,16 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .selectionContainer {
+    padding: 50px 0 30px;
+  }
+  
+  .headerSection h1 {
+    font-size: 1.4rem;
+  }
+}
+
 @media (max-width: 480px) {
   .selectionContainer {
     padding: 30px 0 15px;
@@ -169,5 +256,9 @@
   
   .dotsContainer {
     margin-top: 12px;
+  }
+  
+  .mobileCarousel {
+    width: calc(100% - 20px);
   }
 }
