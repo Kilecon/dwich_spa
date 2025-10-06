@@ -32,7 +32,6 @@ const Home2 = () => {
     }
   ];
 
-  // Touch events for mobile
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -53,7 +52,6 @@ const Home2 = () => {
     }
   };
 
-  // Mouse events for desktop
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
     mouseStartX.current = e.clientX;
@@ -70,7 +68,6 @@ const Home2 = () => {
   const handleMouseUp = () => {
     if (!isDragging) return;
     
-    // Check if drag distance is significant enough to change slide
     if (Math.abs(dragDistance.current) > 50) {
       if (dragDistance.current > 0) {
         setCurrentIndex(prev => Math.min(prev + 1, items.length - 1));
@@ -109,9 +106,7 @@ const Home2 = () => {
       </div>
 
       <div className={styles.contentWrapper}>
-        {/* Mobile carousel - hidden on desktop */}
         <div className={styles.mobileCarousel}>
-          {/* Navigation arrows for desktop when carousel is visible */}
           <div className={styles.carouselArrows}>
             <button 
               className={`${styles.arrow} ${styles.arrowLeft}`}
@@ -164,7 +159,6 @@ const Home2 = () => {
           </div>
         </div>
         
-        {/* Dots indicator - hidden on desktop */}
         <div className={styles.dotsContainer}>
           {items.map((_, index) => (
             <div 
@@ -175,7 +169,6 @@ const Home2 = () => {
           ))}
         </div>
 
-        {/* Desktop grid - hidden on mobile */}
         <div className={styles.gridContainer}>
           {items.map((item, index) => (
             <div key={index} className={styles.selectionItem}>
