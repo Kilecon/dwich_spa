@@ -32,7 +32,6 @@
   padding: 0 15px;
 }
 
-// Desktop grid layout
 .gridContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -69,7 +68,6 @@
   padding: 10px 15px; 
 }
 
-// Mobile carousel layout
 .mobileCarousel {
   overflow: hidden;
   position: relative;
@@ -84,9 +82,8 @@
   display: flex;
   transition: transform 0.3s ease;
   width: 100%;
-  user-select: none; // Prevent text selection during drag
+  user-select: none;
   
-  // Default cursor - will be overridden by inline style
   cursor: grab;
   
   &:active {
@@ -103,7 +100,6 @@
   justify-content: center;
 }
 
-// Carousel navigation arrows
 .carouselArrows {
   position: absolute;
   top: 50%;
@@ -114,10 +110,10 @@
   justify-content: space-between;
   padding: 0 20px;
   z-index: 4;
-  pointer-events: none; // Allow clicks through to carousel
+  pointer-events: none;
   
   @media (max-width: 768px) {
-    display: none; // Hide arrows on mobile
+    display: none;
   }
 }
 
@@ -134,7 +130,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  pointer-events: all; // Re-enable clicks for arrows
+  pointer-events: all;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   
   &:hover:not(:disabled) {
@@ -181,7 +177,6 @@
   transform: scale(1.1); 
 }
 
-// Responsive behavior
 @media (min-width: 769px) {
   .mobileCarousel,
   .dotsContainer {
