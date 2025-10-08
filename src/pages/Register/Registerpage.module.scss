@@ -84,3 +84,11 @@ html, body {
     display: None;
   }
 }
+
+@media (max-width: 650px) {
+  .middleContainer {
+    width: 100%;
+    left: 0px;
+    box-sizing: border-box;
+  }
+}
