@@ -9,7 +9,7 @@ const Home3 = () => {
 
         <div className={styles.buttonWrapper}>
           <Button 
-            variant="quaternary" 
+            variant="primary" 
             size="squared" 
             onClick={() => console.log('Reserver')}
           >
