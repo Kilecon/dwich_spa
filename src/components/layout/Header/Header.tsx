@@ -15,8 +15,14 @@ export const Header = () => {
   const ProfileClick = (e: MouseEvent<HTMLImageElement>) => {
     e.preventDefault();
     console.log('redirection profile');
-    navigate('/profile');
+    navigate('/register');
   };
+
+  const LogoClick = (e: MouseEvent<HTMLImageElement>) => { 
+    e.preventDefault();
+    console.log('logo click');
+    navigate('/')
+  }
 
   return (
     <header className={styles.header}>
@@ -34,7 +40,9 @@ export const Header = () => {
       </div>
       <div className={styles.navContainer}>
         <img 
-          className={styles.navLogo} 
+          className={styles.navLogo}
+          onClick={LogoClick}
+          style={{ cursor: 'pointer' }}
           src="/Dwich&Co_Logo_Couleur.png" 
           alt="Dwich&Co Logo" 
         />

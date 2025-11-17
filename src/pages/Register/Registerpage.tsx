@@ -8,7 +8,6 @@ export const Registerpage = () => {
       </div>
         <div className={styles.background}>
             <div className={styles.background2}>
-              
             </div>
         </div>
     </div>
