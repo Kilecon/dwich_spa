@@ -5,8 +5,8 @@ import Home from './pages/Home/burgerHome';
 import Selection from './pages/Home/selectionHome';
 import Reservation from './pages/Home/reservationHome';
 import Header2 from './components/layout/Header2/Header2';
-import Register from './pages/Register/Registerpage'
-
+import Register from './pages/Register/Registerpage';
+import Login from './pages/Login/Loginpage';
 
 function App() {
   return (
@@ -29,6 +29,14 @@ function App() {
               <>
                 <Header2 />
                 <Register />
+              </>
+            } />
+
+            {/* Login route */}
+            <Route path="/Login" element={
+              <>
+                <Header2 />
+                <Login />
               </>
             } />
 

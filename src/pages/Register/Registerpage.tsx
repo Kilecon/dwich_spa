@@ -1,8 +1,15 @@
 import styles from './Registerpage.module.scss';
 import { Button } from '@/components/ui/Button';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const Registerpage = () => {
+  const navigate = useNavigate();
+
+  const handleRegisterClick = () => {
+    navigate('/login');
+  };
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -106,7 +113,11 @@ export const Registerpage = () => {
             </Button>
           </div>
 
-          <div className={styles.loginText}>
+          <div 
+            className={styles.loginText}
+            onClick={handleRegisterClick}
+            style={{ cursor: 'pointer' }}
+            >
             Déjà client ? &gt;
           </div>
         </div>
