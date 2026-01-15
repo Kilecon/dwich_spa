@@ -35,7 +35,7 @@ const Footer = () => {
 
         <div className={styles.footerSection}>
           <h2>Horaires d'ouvertures</h2>
-          <p>Mardi-verdered : 11h00-22h00</p>
+          <p>Mardi-Vendredi : 11h00-22h00</p>
           <p>Samedi : 18h00-22h00</p>
           <p>Dimanche : 18h00-21h30</p>
         </div>

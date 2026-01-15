@@ -3,31 +3,35 @@ import { Button } from '@/components/ui/Button';
 import { useNavigate } from 'react-router-dom';
 import type { MouseEvent } from 'react';
 
-
 export const ContactPage = () => {
   const navigate = useNavigate();
 
-  const contactButton = (e: MouseEvent<HTMLImageElement>) => { 
+  const handleContactSubmit = (e: MouseEvent<HTMLDivElement>) => { 
     e.preventDefault();
     console.log('contact click');
-    navigate('/')
+    navigate('/');
   };
 
   return (
     <div className={styles.main_content}>
+      {/* Background blobs remain absolute and animated */}
+      <div className={styles.background}>
+        <div className={styles.background2}></div>
+      </div>
+
       <div className={styles.contactText}>Contact</div>
+      
       <div className={styles.middleContainer}>
         <div className={styles.formContainer}>
 
           <div className={styles.inputGroup}>
-            <label htmlFor="name">Nom*</label>
-            <div className={styles.passwordContainer}>
-              <input 
-                type="text"
-                id="password" 
-                placeholder="Tapez ici votre Nom"
-              />
-            </div>
+            <label htmlFor="nom">Nom*</label>
+            <input 
+              type="text" 
+              id="nom" 
+              placeholder="Tapez ici votre Nom"
+              maxLength={30}
+            />
           </div>
 
           <div className={styles.inputGroup}>
@@ -40,26 +44,22 @@ export const ContactPage = () => {
           </div>
 
           <div className={styles.inputGroup}>
-            <label htmlFor="password">Nom*</label>
-            <div className={styles.passwordContainer}>
-              <input 
-                type="text"
-                id="password" 
-                placeholder="Tapez ici votre Nom"
-              />
-            </div>
+            <label htmlFor="message">Message*</label>
+            <textarea 
+              id="message"
+              className={styles.messageInput}
+              placeholder="Tapez ici votre message (Limite de 600 caractères)"
+              maxLength={600}
+            />
           </div>
 
-          <div className={styles.buttonContainer} onClick={contactButton}>
-            <Button variant="primary" size="medium" onClick={() => console.log('connexion')}>
+          <div className={styles.buttonContainer} onClick={(e: any) => handleContactSubmit(e)}>
+            <Button variant="primary" size="medium">
               Envoyer
             </Button>
           </div>
 
         </div>
-      </div>
-      <div className={styles.background}>
-        <div className={styles.background2}></div>
       </div>
     </div>
   );

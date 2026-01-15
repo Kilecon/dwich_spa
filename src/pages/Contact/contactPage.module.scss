@@ -1,9 +1,18 @@
 .main_content {
+  /* Main background and height constraints */
   height: calc(150vh - 100px);
   background: rgba(239, 129, 153, .75);
   overflow: hidden;
   position: relative;
   width: 100%;
+
+  /* Flexbox centering logic - places container "higher" */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  padding-top: 60px; /* Adjust this to move the whole layout up or down */
+  gap: 15px;
 }
 
 html, body {
@@ -16,22 +25,22 @@ html, body {
 .contactText {
   font-size: 30px;
   position:relative;
-  margin-top: 50px;
   padding: 20px;
-  left: 25%;
+  left: -20%;
   color:#013a2f;
   font-weight: bold;
 }
 
 .middleContainer {
-  position: absolute;
   background: rgb(255, 255, 255);
   width: 50%;
-  height: 45%;
-  top: 15%;
-  left: 25%;
+  
+  /* Allow the container to resize based on the inner message input height */
+  height: auto; 
+  min-height: auto;
+  
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 10px;
+  padding: 30px; 
   z-index: 2;
   border-radius: 6px;
   display: flex;
@@ -40,70 +49,55 @@ html, body {
 }
 
 .formContainer {
+  padding: 35px;
   width: 80%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .inputGroup {
   display: flex;
   flex-direction: column;
   gap: 5px;
-}
 
-.inputGroup label {
-  font-weight: bold;
-  color: #085747;
-  margin-bottom: 2px;
-}
+  label {
+    font-weight: bold;
+    color: #085747;
+    margin-bottom: 2px;
+  }
 
-.inputGroup input {
-  padding: 12px;
-  border: 2px solid #085747;
-  border-radius: 8px;
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
+  /* Target both inputs and the message textarea */
+  input, textarea {
+    padding: 12px;
+    border: 2px solid #085747;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
 
-.inputGroup input:focus {
-  border-color: #013a2f;
-}
+    &:focus {
+      border-color: #013a2f;
+    }
+  }
 
-.passwordContainer {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.passwordContainer input {
-  width: 100%;
-  padding-right: 40px;
-}
-
-.passwordToggle {
-  position: absolute;
-  right: 12px;
-  cursor: pointer;
-  user-select: none;
-  font-size: 16px;
+  /* This resizes the actual message input box */
+  .messageInput {
+    height: 180px; 
+    resize: none; /* Keeps the UI clean by preventing manual resizing */
+    font-family: inherit;
+  }
 }
 
 .buttonContainer {
-  margin-top: 40px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
 }
 
-.registerText {
-  margin-top: 7px;
-  text-align: center;
-  color: #085747;
-  cursor: pointer;
-  font-size: 14px;
-}
-
+/* Background Animations - Untouched to preserve functionality */
 .background::before {
   position: absolute;
   content: "";
@@ -136,47 +130,19 @@ html, body {
   -webkit-animation: sliderShape 8s linear infinite;
 }
 
-.eye {
-  width: 30px;
-  height: 22px;
-  right: 0;
-}
-
-@keyframes sliderShape{
-  0%,100%{
-    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-    transform: translate3d(0,0,0) rotateZ(0.01deg);
-  }
-  34%{
-    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
-    transform:  translate3d(0,5px,0) rotateZ(0.01deg);
-  }
-  50%{
-    transform: translate3d(0,0,0) rotateZ(0.01deg);
-  }
-  67%{
-    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
-    transform: translate3d(0,-3px,0) rotateZ(0.01deg);
-  }
+@keyframes sliderShape {
+  0%,100%{ border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; transform: translate3d(0,0,0) rotateZ(0.01deg); }
+  34%{ border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%; transform:  translate3d(0,5px,0) rotateZ(0.01deg); }
+  50%{ transform: translate3d(0,0,0) rotateZ(0.01deg); }
+  67%{ border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; transform: translate3d(0,-3px,0) rotateZ(0.01deg); }
 }
 
 @media (max-width: 768px) {
-  .background {
-    display: None;
-  }
-  .background2 {
-    display: None;
-  }
+  .background, .background2 { display: None; }
 }
 
 @media (max-width: 650px) {
-  .middleContainer {
-    width: 100%;
-    left: 0px;
-    box-sizing: border-box;
-  }
-  
-  .formContainer {
-    width: 90%;
-  }
+  .middleContainer { width: 100%; box-sizing: border-box; }
+  .formContainer { width: 100%; }
+  .contactText { left: 0; }
 }
