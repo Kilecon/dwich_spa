@@ -58,6 +58,15 @@
   }
 }
 
+.footerLink {
+  text-decoration: none;
+  color: #333;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 @media (max-width: 768px) {
   .footerContent {
     text-align: center;

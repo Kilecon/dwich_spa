@@ -2,12 +2,19 @@ import styles from './Registerpage.module.scss';
 import { Button } from '@/components/ui/Button';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import type { MouseEvent } from 'react';
 
 export const Registerpage = () => {
   const navigate = useNavigate();
 
   const handleRegisterClick = () => {
     navigate('/login');
+  };
+
+  const RegisterButton = (e: MouseEvent<HTMLImageElement>) => { 
+    e.preventDefault();
+    console.log('register click');
+    navigate('/')
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -107,7 +114,7 @@ export const Registerpage = () => {
             </div>
           </div>
 
-          <div className={styles.buttonContainer}>
+          <div className={styles.buttonContainer} onClick={RegisterButton}>
             <Button variant="primary" size="medium" onClick={() => console.log('creer compte')}>
               Créer mon compte
             </Button>

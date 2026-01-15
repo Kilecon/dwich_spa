@@ -1,5 +1,6 @@
 import styles from './Footer.module.scss';
 import { Button } from '@/components/ui/Button';
+import { Link } from 'react-router-dom'; 
 
 const Footer = () => {
   return (
@@ -26,7 +27,9 @@ const Footer = () => {
           <p>Tel. 05.56.85.73.76</p>
           <ul>
             <li>Mentions légales</li>
-            <li>Contact</li>
+            <Link to="/contact" className={styles.footerLink}>
+              <li>Contact</li>
+            </Link>
           </ul>
         </div>
 

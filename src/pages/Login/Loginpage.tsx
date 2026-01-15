@@ -2,12 +2,20 @@ import styles from './Loginpage.module.scss';
 import { Button } from '@/components/ui/Button';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import type { MouseEvent } from 'react';
+
 
 export const Loginpage = () => {
   const navigate = useNavigate();
 
   const handleRegisterClick = () => {
     navigate('/register');
+  };
+
+  const LoginButton = (e: MouseEvent<HTMLImageElement>) => { 
+    e.preventDefault();
+    console.log('login click');
+    navigate('/')
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -51,7 +59,7 @@ export const Loginpage = () => {
             </div>
           </div>
 
-          <div className={styles.buttonContainer}>
+          <div className={styles.buttonContainer} onClick={LoginButton}>
             <Button variant="primary" size="medium" onClick={() => console.log('connexion')}>
               Connexion
             </Button>
