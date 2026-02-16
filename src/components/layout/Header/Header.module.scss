@@ -22,6 +22,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   margin: -5px 0;
+  z-index: 102;
 }
 
 .rightGroup {
@@ -31,6 +32,7 @@
   transform: translateY(-50%);
   display: flex;
   gap: 30px;
+  align-items: center;
 }
 
 .leftGroup {
@@ -43,23 +45,54 @@
   align-items: center; 
 }
 
+.dropdown {
+  position: absolute;
+  top: 50px;
+  left: -10px;
+  background-color: white;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px 0;
+  min-width: 180px;
+  z-index: 200;
+
+  .dropdownList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 12px 20px;
+      font-size: 16px;
+      color: #013a2f;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #f5f5f5;
+        color: #000;
+      }
+    }
+  }
+}
+
 .navProfil {
-    width: 40px;
-    height: 39px;
+  width: 40px;
+  height: 39px;
 }
 
 .navTextLink {
   color: #013a2f;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: bold;
   cursor: pointer;
   transition: color 0.2s;
-  font-weight: bold;
 }
 
 .navMenu {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 .navMenu,
@@ -75,46 +108,30 @@
   }
 }
 
+
 @media (max-width: 1200px) {
-  .rightGroup {
-    left: calc(50% + 120px);
-  }
-  .leftGroup {
-    right: calc(50% + 160px);
-    gap: 50px;
-  }
+  .rightGroup { left: calc(50% + 120px); }
+  .leftGroup { right: calc(50% + 160px); gap: 50px; }
 }
 
 @media (max-width: 1020px) {
-  .rightGroup {
-    left: calc(50% + 90px);
-  }
-  .leftGroup {
-    right: calc(50% + 130px);
-    gap: 50px;
-  }
+  .rightGroup { left: calc(50% + 90px); }
+  .leftGroup { right: calc(50% + 130px); gap: 50px; }
 }
 
 @media (max-width: 900px) {
-  .rightGroup {
-    left: calc(50% + 70px);
-  }
-  .leftGroup {
-    right: calc(50% + 110px);
-    gap: 50px;
-  }
+  .rightGroup { left: calc(50% + 70px); }
+  .leftGroup { right: calc(50% + 110px); gap: 50px; }
 }
 
 @media (max-width: 850px) {
   .header {
-    height: 60px;
+    height: 70px;
   }
 
   .navLogo {
-    width: 45px;
-    height: 45px;
-    transform: translate(-50%, -50%);
-    margin: 0;
+    width: 50px;
+    height: 50px;
   }
 
   .leftGroup {
@@ -134,7 +151,7 @@
     gap: 0;
     transform: translateY(-50%);
     
-    Button {
+    button {
       display: none;
     }
   }

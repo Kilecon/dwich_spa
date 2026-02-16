@@ -9,6 +9,7 @@ import Header2 from './components/layout/Header2/Header2';
 import Register from './pages/Register/Registerpage';
 import Login from './pages/Login/Loginpage';
 import Contact from './pages/Contact/contactPage'
+import Profil from './pages/Profil/Profil'
 
 function App() {
   return (
@@ -45,10 +46,18 @@ function App() {
             } />
 
             {/* Login route */}
-            <Route path="/Login" element={
+            <Route path="/login" element={
               <>
                 <Header2 />
                 <Login />
+              </>
+            } />
+
+            {/* Profil route */}
+            <Route path="/profil" element={
+              <>
+                <Header />
+                <Profil />
               </>
             } />
 

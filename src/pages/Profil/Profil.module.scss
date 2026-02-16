@@ -1,0 +1,255 @@
+/* Profil.module.scss */
+
+/* --- MAIN PAGE LAYOUT --- */
+.pageContainer {
+  min-height: calc(100vh - 100px); 
+  background-color: #EFB4C2; /* Fond Rose */
+  display: flex;
+  padding: 60px 40px; 
+  /* gap: 40px;Supprimé pour le desktop car la sidebar est absolue */
+  font-family: 'Arial', sans-serif;
+  position: relative; /* Nécessaire pour positionner la sidebar en absolute par rapport à ce bloc */
+  overflow-x: hidden;
+}
+
+/* --- SIDEBAR NAVIGATION (Desktop) --- */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 260px; /* Largeur fixe */
+  flex-shrink: 0; 
+  padding-top: 80px; 
+
+  /* NOUVEAU : Position absolue pour sortir du flux et centrer le reste */
+  position: absolute;
+  left: 40px; /* S'aligne avec le padding du container */
+  top: 60px;  /* S'aligne avec le padding du container */
+  z-index: 10;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  color: #013a2f;
+  font-weight: bold;
+  font-size: 1.1rem;
+
+  img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.navItemActive {
+  background-color: #E68A9F; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* --- MAIN CONTENT AREA --- */
+.contentArea {
+  width: 100%; /* Prend toute la largeur disponible */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre horizontalement le contenu (Titre + Box) par rapport à l'écran */
+}
+
+/* Title styled */
+.pageTitle {
+  font-size: 2rem;
+  color: #013a2f;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center; /* Centre le texte et l'icône */
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  
+  img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* The White Box */
+.whiteContainer {
+  background: white;
+  width: 100%;
+  max-width: 800px; /* Limite la largeur pour que ça reste joli */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 40px;
+  box-sizing: border-box;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- FORM STYLES --- */
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto; /* Centre le formulaire DANS la boite blanche */
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-size: 0.9rem;
+    color: #085747;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+
+  input {
+    padding: 12px 15px;
+    border: 1px solid #085747;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    color: #555;
+    width: 100%;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: #aaa; /* Placeholder gris clair */
+    }
+
+    &:focus {
+      border-color: #013a2f;
+      border-width: 2px;
+    }
+  }
+}
+
+/* Containers for Buttons */
+.actionsContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eee; /* La ligne de séparation */
+  width: 100%;
+}
+
+.passwordSection {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Delete Link */
+.deleteAccount {
+  margin-top: 30px;
+  color: #013a2f;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-align: center;
+  
+  &:hover {
+    color: red;
+  }
+}
+
+/* --- LIST STYLES (Orders/Reservations) --- */
+.listSection {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.sectionHeader {
+  color: #013a2f;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+.itemCard {
+  background-color: #FADADD; 
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  color: #013a2f;
+  font-size: 0.95rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.cardDetails {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* --- MOBILE RESPONSIVE (< 850px) --- */
+@media (max-width: 850px) {
+  .pageContainer {
+    flex-direction: column;
+    padding: 20px 15px;
+    gap: 30px; /* On remet le gap pour le mobile */
+  }
+
+  .sidebar {
+    /* RESET : On annule le positionnement absolu pour le mobile */
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: auto;
+
+    flex-direction: row;
+    padding-top: 0;
+    width: 100%;
+    justify-content: space-between;
+    overflow-x: auto;
+  }
+
+  .navItem {
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    font-size: 0.8rem;
+    text-align: center;
+    flex: 1;
+    
+    img {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .whiteContainer {
+    padding: 20px;
+  }
+
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+}

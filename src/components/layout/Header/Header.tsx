@@ -1,27 +1,26 @@
 import styles from './Header.module.scss';
 import { Button } from '@/components/ui/Button';
 import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import type { MouseEvent } from 'react';
 
 export const Header = () => {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const MenuClick = (e: MouseEvent<HTMLImageElement>) => {
+  const toggleMenu = (e: MouseEvent<HTMLImageElement>) => {
     e.preventDefault();
-    console.log('menu click');
-    // sidebar
+    setIsMenuOpen(!isMenuOpen);
   };
 
-  const ProfileClick = (e: MouseEvent<HTMLImageElement>) => {
-    e.preventDefault();
-    console.log('redirection profile');
-    navigate('/register');
+  const handleNavClick = (path: string) => {
+    setIsMenuOpen(false);
+    navigate(path);
   };
 
   const LogoClick = (e: MouseEvent<HTMLImageElement>) => { 
     e.preventDefault();
-    console.log('logo click');
-    navigate('/')
+    navigate('/');
   }
 
   return (
@@ -31,13 +30,27 @@ export const Header = () => {
           src="/assets/icons/menu_icon_couleur.png" 
           alt="Menu"
           className={styles.navMenu}
-          onClick={MenuClick}
+          onClick={toggleMenu}
           style={{ cursor: 'pointer' }}
         />
-        <Link to="/TESTEST" className={styles.navTextLink}>
+        
+        {isMenuOpen && (
+          <div className={styles.dropdown}>
+            <ul className={styles.dropdownList}>
+              <li onClick={() => handleNavClick('/carte')}>Notre carte</li>
+              <li onClick={() => handleNavClick('/menus')}>Menu</li>
+              <li onClick={() => { console.log('Commander'); setIsMenuOpen(false); }}>Commander</li>
+              <li onClick={() => { console.log('Reserver'); setIsMenuOpen(false); }}>Réserver</li>
+              <li onClick={() => handleNavClick('/contact')}>Contact</li>
+            </ul>
+          </div>
+        )}
+
+        <Link to="/carte" className={styles.navTextLink}>
           NOTRE CARTE
         </Link>
       </div>
+
       <div className={styles.navContainer}>
         <img 
           className={styles.navLogo}
@@ -46,6 +59,7 @@ export const Header = () => {
           src="/Dwich&Co_Logo_Couleur.png" 
           alt="Dwich&Co Logo" 
         />
+
         <div className={styles.rightGroup}>
           <Button variant="primary" size="medium" onClick={() => console.log('Commander')}>
             Commander
@@ -57,7 +71,7 @@ export const Header = () => {
             src="/assets/icons/profil_icon_couleur.png" 
             alt="Profile"
             className={styles.navProfil}
-            onClick={ProfileClick}
+            onClick={() => navigate('/register')}
             style={{ cursor: 'pointer' }}
           />
         </div>
