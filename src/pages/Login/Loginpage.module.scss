@@ -177,9 +177,11 @@ html, body {
   }
 
   .connexionText {
-    align-items: center;
+    left: 0;
+    text-align: center;
+    margin-top: 50px;
   }
-  
+
   .formContainer {
     width: 90%;
   }
